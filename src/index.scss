@@ -1,0 +1,155 @@
+:root {
+  /* Based on the accent colour create possible palettes (just a subsection of colours will be applied) */
+  --accent:         #fec85c; /* Original icon colour from business card is approx: rgb(254, 200, 76); */
+  --accent--opacity07: rgba(254, 200, 76, 0.7);
+  --accent--opacity04: rgba(254, 200, 76, 0.4);
+
+  /* Possible colour variations */
+  --complementary:  #c396e7;    /* Complementary - Provides a high contrast and high impact color combination – together, these colors will appear brighter and more prominent */
+  --monochromatic1: #dac26d;    /* Monochromatic - Povides a subtle and conservative color combination*/
+  --monochromatic2: #ceb148;
+  --monochromatic3: #c1a027;
+  --analogous1:     #e3e796;    /* Analogous - This color combination is versatile, but can be overwhelming. To balance an analogous color scheme, choose one dominant color, and use the others as accents*/
+  --analogous2:     #e7c196;
+  --split-comp1:    #e796e3;    /* Split Complimentary - Split complementary colors have a strong visual contrast like standard complements, but tend to be a bit less jarring since they're not direct complements */
+  --split-comp2:    #9a96e7;
+  --triadic1:       #e796bb;    /* Triadic - Provides a high contrast color scheme, but less so than the complementary color combination */
+  --triadic2:       #96dee7;
+  --tetradic1:      #c396e7;    /* Tetradic - Tetradic color schemes are bold and work best if you let one color be dominant, and use the others as accents */
+  --tetradic2:      #e796bb;
+  --tetradic3:      #bbe796;
+
+  /* Greyscale */
+  --white-003:      #ffffff08;
+  --white-005:      #ffffff0d;
+  --white-007:      #ffffff12;
+  --white-02:       #ffffff33;
+  --white-07:       #ffffffb3;
+  --white1:         #eee;
+  --white2:         #ddd;
+  --white3:         #ccc;
+  --white5:         #a78e8e;
+  --grey1:          #121213;
+  --grey2:          #28282c;
+  --grey3:          #3a3a40;
+  --grey4:          #3c3c42;
+  --grey5:          #4f4f4f;
+  --grey6:          #4f4f58;
+  --grey7:          #555;
+  --grey8:          #777;
+  --black-002:      #00000005;
+  --black-02:       #00000033;
+  --black-03:       #0000004d;
+  --black-004:      #ffffff0a;
+  --black-05:       #00000080;
+  --black-07:       #000000b3;
+  --black2:         #0e0e0e;
+  --black3:         #141414;
+  --black4:         #1d1d1d;
+  --black5:         #222;
+
+  --font-lrg: 22px;
+  --font-med: 16px;
+  --font-sml: 14px;
+  --font-xsm: 10px;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@font-face {
+  font-family: "Simplifica";
+  src: url("./assets/fonts/Simplifica.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Thin";
+  src: url("./assets/fonts/HelveticaNeue-Thin.otf");
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: thin;       
+  scrollbar-color: var(--accent) var(--white-02);
+}
+
+/* Scrollbar */
+/* Width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #222;
+    box-shadow: -2px -2px 2px black, 2px 2px 2px rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fec85ca9;
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.no-display {
+  display: none !important;
+}
+
+:focus {
+  outline: 1px dotted var(--tetradic3);
+}
+
+button:focus {
+  outline: 1px solid var(--accent);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+p {
+  orphans: 3;
+  widows: 3;
+}
+
+nobr {
+  white-space: nowrap;
+}
+
+body {
+  min-height: -webkit-fill-available; /* Mobile devices ignore bottom menu when calculating viewport height */
+  min-width: -webkit-fill-available;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--grey1);
+  overflow: hidden;
+  cursor: default;
+}

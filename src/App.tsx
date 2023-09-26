@@ -1,6 +1,6 @@
-import "./App.css";
+import Page from "./components/shared/Page/Page";
 
 function App() {
-    return <div>App</div>;
+    return <Page />;
 }
 export default App;
