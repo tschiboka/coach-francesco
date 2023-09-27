@@ -279,7 +279,7 @@ function setLanguage(lang = 'english') {
     activeLangBtn.classList.add('active');
 
     language = lang;
-    storeVisit('HOME', language);
+    // storeVisit('HOME', language);
 }
 
 

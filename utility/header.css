@@ -8,10 +8,11 @@ header {
     align-items: center;
     justify-content: flex-end;
     background-color: var(--black2);
-    box-shadow: 0 7px 15px black;
     text-shadow: 1px 1px solid black;
     font-family: "Simplifica", HelveticaNeue, sans-serif !important;
     border-bottom: 1px solid var(--black4);
+    box-shadow: 20px 0px 50px black; 
+    /* , -3px -3px 5px inset var(--white005); */
     z-index: 100;
 }
 
@@ -21,8 +22,6 @@ header .branding {
     justify-content: center;
     align-items: center;
     background-color: var(--black-02);
-    box-shadow: 5px 5px 5px inset black, -3px -3px 7px inset var(--white-003);
-    border-right: 1px solid var(--black4);
 }
 
 header > .branding > img {
@@ -57,7 +56,6 @@ nav {
     justify-content: flex-end;
     align-items: center;
     flex-grow: 1;
-    box-shadow: -1px -1px 7px inset black, 3px 3px 5px inset var(--white-003);
 }
 
 nav > ul {

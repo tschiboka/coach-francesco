@@ -208,6 +208,13 @@ q {
     padding-right: 3vw;
 }
 
+.welcome .welcome__text img {
+    margin: 0 auto;
+    margin-bottom: 50px;
+    width: 200px;
+    height: 200px;
+}
+
 .welcome > div.welcome__text h1 {
     font-size: 9vh;
     letter-spacing: 0.3vh;
@@ -1217,6 +1224,12 @@ footer .smallprint hr {
         padding-top: 170px;
     }
 
+    .welcome .welcome__text img {
+        display: block;
+        width: 150px;
+        height: 150px;
+    }
+
     footer .footer__bottom-wrapper {
         flex-wrap: wrap;
     }
@@ -1250,6 +1263,10 @@ footer .smallprint hr {
 
     .welcome div.welcome__text {
         height: 20vh;
+    }
+
+    .welcome .welcome__text img {
+        display: none;
     }
 
     .welcome div.welcome__text > h1 {
