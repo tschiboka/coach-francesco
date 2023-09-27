@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Francesco Vero Personal Trainer Portfolio Website Specialised: Weight, Bodyweight, Healthy Lifestyle, Nutritional Advice | Contact Message Form">
+    
+    <link rel="shortcut icon" href="../../images/misc/fire.png" type="image/x-icon"/>
+    <script src="https://kit.fontawesome.com/d5efc64c80.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./contact.css">
+    <script src="../../utility/header.js"></script>
+    <link rel="stylesheet" href="../../utility/header.css">
+
+    <title>Coach Francesco Levo | Contact</title>
+</head>
+
+<body id="top" onload="countCharacters();">
+    <!--------------- Horizontal Navigationbar -------------->
+    <header id="header">
+        <div class="branding" id="branding">
+            <img 
+                src="../../images/misc/logo.png" 
+                alt="logo" 
+                title="Logo"
+                width="auto"
+                >
+
+            <div class="header__title">
+                <span class="header__title__name">FRANCESCO&nbsp;LEVO</span>
+                
+                <span class="header__title__motto">WORK&nbsp;&bull;&nbsp;BELIEVE&nbsp;&bull;&nbsp;PROGRESS</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul lang="en">
+                <li class="nav__link" id="home" title="Home Page">
+                    <a href="../../index.html">Home</a>
+                </li>
+
+                <li class="nav__link" id="about" title="Learn More about Francesco">
+                    <a href="../about/about.html">About&nbsp;Francesco</a>
+                </li>
+                
+                <li class="nav__link" id="results" title="Success Stories That Francesco Is Proud of">
+                    <a href="../results/results.html">Client Results</a>
+                </li>
+                
+                <li class="nav__link" id="events" title="Find Classes, Availibility and Prices">
+                    <a href="../events/events.html">Events</a>
+                </li>
+                
+                <li class="nav__link current-page" id="contact" title="How to Reach Out to Francesco">
+                    <a href="#top">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav__buttons" id="nav__buttons">
+                <div id="language-options" class="language-options">
+                    <div 
+                        class="language-options--english active" 
+                        title="Engish Language Option"
+                        onclick="setLanguage('english')"
+                    ></div>
+        
+                    <div 
+                        class="language-options--italian" 
+                        title="Opzione Italiano"
+                        onclick="setLanguage('italian')"
+                    ></div>
+                </div>
+        
+                <i class="fas fa-chevron-up" title="Hide Navigation" onclick="toggleHeader()"></i>
+            </div>    
+        </nav>
+    </header>
+
+    <div id="burger">
+        <i class="fas fa-bars" title="Show Navigation" onclick="toggleHeader()"></i>
+    </div>
+
+    <main>
+        <h1 class="english" lang="en">Contact Francesco</h1>
+        <h1 class="italian" lang="it">Contact Francesco</h1>
+
+        <form action="">
+            <fieldset>
+                <label for="first-name" id="first-name-label">
+                    <span class="label-text">First Name:&nbsp;</span>
+                    <span class="error-msg"></span>
+                    <span class="circle"></span>
+                </label>
+                <input 
+                    type="text" 
+                    name="first-name" 
+                    id="first-name" 
+                    maxlength="50"
+                    placeholder="First Name" 
+                    oninput="handleInputOnChange(this)"
+                    onfocus="handleInputOnFocus(this)"
+                    onblur="handleInputOnBlur(this)"
+                    required />
+            </fieldset>
+
+            <fieldset>
+                <label for="last-name" id="last-name-label">
+                    <span class="label-text">Last Name:&nbsp;</span>
+                    <span class="error-msg"></span>
+                    <span class="circle"></span>
+                </label>
+                <input 
+                    type="text" 
+                    name="last-name" 
+                    id="last-name" 
+                    maxlength="50"
+                    placeholder="Last Name" 
+                    oninput="handleInputOnChange(this)"
+                    onfocus="handleInputOnFocus(this)"
+                    onblur="handleInputOnBlur(this)"
+                    required />
+            </fieldset>
+
+            <fieldset>
+                <label for="email" id="email-label">
+                    <span class="label-text">Email:&nbsp;</span>
+                    <span class="error-msg"></span>
+                    <span class="circle"></span>
+                </label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    maxlength="255"
+                    oninput="handleInputOnChange(this)"
+                    onfocus="handleInputOnFocus(this)"
+                    onblur="handleInputOnBlur(this)"
+                    placeholder="example@domain.com" 
+                    required />
+            </fieldset>
+
+            <fieldset>
+                <label for="message" id="message-label">
+                    <span class="label-text">Message:&nbsp;</span>
+                    <span class="error-msg"></span>
+                    <span class="circle"></span>
+                </label>
+                <textarea 
+                    name="message" 
+                    id="message" 
+                    placeholder="message"
+                    cols="50" 
+                    rows="8" 
+                    maxlength="3000"
+                    oninput="handleInputOnChange(this)"
+                    onfocus="handleInputOnFocus(this)"
+                    onblur="handleInputOnBlur(this)"
+                    required></textarea>
+
+                <span id="character-counter">0 / 3000</span>
+            </fieldset>
+
+            <div class="btn-wrapper">
+                <span id="submit-message">Submitting message...</span>
+                <button id="submit-btn" type="button" onclick="submitMessage()">Submit</button>
+            </div>
+        </form>    
+        
+        <div class="social">
+            <a href="https://www.facebook.com/Francesco-Levo-PT-114070063658148" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+
+            <a href="https://www.instagram.com/_francescolevo_pt/?hl=it" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+
+            <a href="https://twitter.com/CoachFrankieLDN?s=08" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+
+            <a title="Youtube"><i class="fab fa-youtube"></i></a>
+
+            <a href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQGF5HmIDRdCuwAAAXucIEoYUyFunbINmZ3hCtY7h0GttpXGh_w9GxXRjxM5lFcUR2bg_v7jZg1U74CeEpoFQHnUPrEbrY1PLpPrWBkjGBhlYvnLIPzLcN-RPKI_6gQxAyq7udU=&originalReferer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Ffrancesco-levo-4417511a9" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+
+            <a href="https://goo.gl/maps/qz74CjkijrFW9yrX7" target="_blank" title="Location"><i class="fas fa-map-marker-alt"></i></a>
+        </div>
+    </main>
+    
+    <script src="../../utility/getQueryParams.js"></script>
+    <script>
+        if(urlParams.lang === 'it') { 
+            setLanguage("italian"); 
+        }
+    </script>
+
+    <script src="./contact.js"></script>
+
+    <script src="../../utility/visit.js"></script>
+    <script>storeVisit('CONTACT')</script>
+</body>
+</html>

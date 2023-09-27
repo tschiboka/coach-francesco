@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Francesco Vero Personal Trainer Portfolio Website Specialised: Weight, Bodyweight, Healthy Lifestyle, Nutritional Advice Events Calendar Upcoming Sessions">
+    <meta name="theme-color" content="#0E0E0E">
+    
+    <script src="https://kit.fontawesome.com/d5efc64c80.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../../images/misc/fire.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="./events.css">
+    <link rel="stylesheet" href="../../utility/header.css">
+    <link rel="stylesheet" href="./calendar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    
+    <script src="../../utility/header.js"></script>
+
+    <title>Coach Francesco Levo | Events</title>
+  </head>
+<body id="top">
+    <!--------------- Horizontal Navigationbar -------------->
+    <header id="header">
+        <div class="branding" id="branding">
+            <img 
+                src="../../images/misc/logo.png" 
+                alt="logo" 
+                title="Logo"
+                width="auto"
+                >
+
+            <div class="header__title">
+                <span class="header__title__name">FRANCESCO&nbsp;LEVO</span>
+                
+                <span class="header__title__motto">WORK&nbsp;&bull;&nbsp;BELIEVE&nbsp;&bull;&nbsp;PROGRESS</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul lang="en">
+                <li class="nav__link" id="home" title="Home Page">
+                    <a href="../../index.html">Home</a>
+                </li>
+
+                <li class="nav__link" id="about" title="Learn More about Francesco">
+                    <a href="../about/about.html">About&nbsp;Francesco</a>
+                </li>
+                
+                <li class="nav__link" id="results" title="Success Stories That Francesco Is Proud of">
+                    <a href="../results/results.html">Client Results</a>
+                </li>
+                
+                <li class="nav__link current-page" id="events" title="Find Classes, Availibility and Prices">
+                    <a href="#top">Events</a>
+                </li>
+                
+                <li class="nav__link" id="contact" title="How to Reach Out to Francesco">
+                    <a href="../contact/contact.html">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav__buttons" id="nav__buttons">
+                <div id="language-options" class="language-options">
+                    <div 
+                        class="language-options--english active" 
+                        title="Engish Language Option"
+                        onclick="setLanguage('english')"
+                    ></div>
+        
+                    <div 
+                        class="language-options--italian" 
+                        title="Opzione Italiano"
+                        onclick="setLanguage('italian')"
+                    ></div>
+                </div>
+        
+                <i class="fas fa-chevron-up" title="Hide Navigation" onclick="toggleHeader()"></i>
+            </div>    
+        </nav>
+    </header> 
+    
+    <div id="burger">
+    <i class="fas fa-bars" title="Show Navigation" onclick="toggleHeader()"></i>
+    </div>
+
+    <main>
+        <div id="calendar-container">
+            <div id="loading-spinner">
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+            </div>
+
+            <div id="date-time">
+                <time>
+                    <i class="fas fa-calendar-alt"></i>
+                    <span id="date">09.09.2021</span>
+                </time>
+
+                <time>
+                    <i class="far fa-clock"></i>
+
+                    <span id="time">03:45:18</span>
+                </time>
+
+                 <button><i class="fas fa-ellipsis-v"></i></button>
+            </div>
+            
+            <nav id="calendar__navigation" title="Select Date">
+                <div id="calendar-month--selected" tabindex=0 onclick="toggleDateDropdown()">
+                    <span id="calendar-month--selected__text"></span>
+                    <div>   
+                        <hr>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <div id="calendar__navigation__buttons">
+                    <div id="calendar-month__options"></div>
+
+                    <button 
+                        id="set-view-btn--monthly"
+                        title="Montly View" 
+                        onclick="setView('months')"
+                        disabled
+                    >
+                        <i class="fas fa-table"></i>
+                        <div class="dot"></div>
+                    </button>
+                    
+                    <button 
+                        id="set-view-btn--weekly"
+                        title="Weekly View"
+                        onclick="setView('weeks')"
+                    >
+                        <i class="fas fa-list"></i>
+                        <div class="dot"></div>
+                    </button>
+    
+                    <button 
+                        id="previous-month-btn"
+                        title="Previous"
+                        onclick="stepCalendar(-1)"
+                    ><i class="fas fa-chevron-left"></i></button>
+    
+                    <button 
+                        id="next-month-btn"
+                        title="Next"
+                        onclick="stepCalendar(1)"
+                    ><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </nav>
+
+            <div id="calendar-month--options">
+                <div id="select-year">
+                    <button 
+                        title="Previous Year" 
+                        id="select-prev-year-btn" 
+                        onclick="scrollSelectView({ year: -1 })"
+                        >
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="year" data-index="2"></button>
+                    <button class="year" data-index="1"></button>
+                    <button class="year" data-index="0"></button>
+                    <button class="year" data-index="-1"></button>
+                    <button class="year" data-index="-2"></button>
+                    <button 
+                        id="select-next-year-btn"
+                        title="Next Year" 
+                        onclick="scrollSelectView({ year: 1 })"
+                    >
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div id="select-month">
+                    <button 
+                        id="select-prev-month-btn"
+                        title="Previous Month" 
+                        onclick="scrollSelectView({ month: -1 })"
+                    >
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="month" data-index="2"></button>
+                    <button class="month" data-index="1"></button>
+                    <button class="month" data-index="0"></button>
+                    <button class="month" data-index="-1"></button>
+                    <button class="month" data-index="-2"></button>
+                    <button 
+                        id="select-next-month-btn" 
+                        title="Next Month" 
+                        onclick="scrollSelectView({ month: 1 })"
+                    >
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="calendar--monthly">
+                <div class="days">
+                    <div id="monday-text">MON</div>
+                    <div id="tuesday-text">TUE</div>
+                    <div id="wednesday-text">WED</div>
+                    <div id="thursday-text">THU</div>
+                    <div id="friday-text">FRI</div>
+                    <div id="saturday-text">SAT</div>
+                    <div id="sunday-text">SUN</div>
+                </div>
+
+                <div class="week">
+                    <div class="day-slot" id="slot-1"></div>
+                    <div class="day-slot" id="slot-2"></div>
+                    <div class="day-slot" id="slot-3"></div>
+                    <div class="day-slot" id="slot-4"></div>
+                    <div class="day-slot" id="slot-5"></div>
+                    <div class="day-slot" id="slot-6"></div>
+                    <div class="day-slot" id="slot-7"></div>
+                </div>
+                <div class="week">
+                    <div class="day-slot" id="slot-8"></div>
+                    <div class="day-slot" id="slot-9"></div>
+                    <div class="day-slot" id="slot-10"></div>
+                    <div class="day-slot" id="slot-11"></div>
+                    <div class="day-slot" id="slot-12"></div>
+                    <div class="day-slot" id="slot-13"></div>
+                    <div class="day-slot" id="slot-14"></div>
+                </div>
+                <div class="week">
+                    <div class="day-slot" id="slot-15"></div>
+                    <div class="day-slot" id="slot-16"></div>
+                    <div class="day-slot" id="slot-17"></div>
+                    <div class="day-slot" id="slot-18"></div>
+                    <div class="day-slot" id="slot-19"></div>
+                    <div class="day-slot" id="slot-20"></div>
+                    <div class="day-slot" id="slot-21"></div>
+                </div>
+                <div class="week">
+                    <div class="day-slot" id="slot-22"></div>
+                    <div class="day-slot" id="slot-23"></div>
+                    <div class="day-slot" id="slot-24"></div>
+                    <div class="day-slot" id="slot-25"></div>
+                    <div class="day-slot" id="slot-26"></div>
+                    <div class="day-slot" id="slot-27"></div>
+                    <div class="day-slot" id="slot-28"></div>
+                </div>
+                <div class="week">
+                    <div class="day-slot" id="slot-29"></div>
+                    <div class="day-slot" id="slot-30"></div>
+                    <div class="day-slot" id="slot-31"></div>
+                    <div class="day-slot" id="slot-32"></div>
+                    <div class="day-slot" id="slot-33"></div>
+                    <div class="day-slot" id="slot-34"></div>
+                    <div class="day-slot" id="slot-35"></div>
+                </div>
+                <div class="week">
+                    <div class="day-slot" id="slot-36"></div>
+                    <div class="day-slot" id="slot-37"></div>
+                    <div class="day-slot" id="slot-38"></div>
+                    <div class="day-slot" id="slot-39"></div>
+                    <div class="day-slot" id="slot-40"></div>
+                    <div class="day-slot" id="slot-41"></div>
+                    <div class="day-slot" id="slot-42"></div>
+                </div>
+            </div>
+
+            <div id="calendar--weekly">
+                <div class="days">
+                    <div id="monday-text">MON</div>
+                    <div id="tuesday-text">TUE</div>
+                    <div id="wednesday-text">WED</div>
+                    <div id="thursday-text">THU</div>
+                    <div id="friday-text">FRI</div>
+                    <div id="saturday-text">SAT</div>
+                    <div id="sunday-text">SUN</div>
+                </div>
+                <div class="weekdays">
+                    <div class="weekday-slot">
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                    </div>
+                    <div class="weekday-slot">
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                    </div>
+                    <div class="weekday-slot">
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                    </div>
+                    <div class="weekday-slot">
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                    </div>
+                    <div class="weekday-slot">
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                    </div>
+                    <div class="weekday-slot">
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                    </div>
+                    <div class="weekday-slot">
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                        <div class="hour-slot"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="timeline">
+                <div id="timeline__textbox">
+                    <span>16</span>
+                    <span>4</span>
+                    <span>16</span>
+                    <span>4</span>
+                    <span>16</span>
+                </div>
+                
+                <div id="timeline__ruler">
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="line" id="line"></div>
+                </div>
+            </div>
+        </div>
+        <div id="event-list">
+            <div id="loading-spinner-2">
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+            </div>
+
+            <div id=event-items></div>
+        </div>
+    </main>
+
+    <script src="../../utility/getQueryParams.js"></script>
+    <script>
+        if(urlParams.lang === 'it') { 
+            setLanguage("italian"); 
+        }
+    </script>
+    
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="./events.js"></script>
+    
+    <script src="../../utility/visit.js"></script>
+    <script>storeVisit('EVENTS')</script>
+  </body>
+</html>
+
+<body>

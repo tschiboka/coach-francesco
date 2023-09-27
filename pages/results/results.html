@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Francesco Vero Personal Trainer Portfolio Website Specialised: Weight, Bodyweight, Healthy Lifestyle, Nutritional Advice, Client Results, Transformations, Testimonials, Feedbacks">
+    
+    <link rel="shortcut icon" href="../../images/misc/fire.png" type="image/x-icon"/>
+    <script src="https://kit.fontawesome.com/d5efc64c80.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./results.css">
+    <script src="../../utility/header.js"></script>
+    <link rel="stylesheet" href="../../utility/header.css">
+
+    
+    <title>Coach Francesco Levo | Client Results</title>
+</head>
+<body>
+    <!--------------- Horizontal Navigationbar -------------->
+    <header id="header">
+        <div class="branding" id="branding">
+            <img 
+                src="../../images/misc/logo.png" 
+                alt="logo" 
+                title="Logo"
+                width="auto"
+                >
+
+            <div class="header__title">
+                <span class="header__title__name">FRANCESCO&nbsp;LEVO</span>
+                
+                <span class="header__title__motto">WORK&nbsp;&bull;&nbsp;BELIEVE&nbsp;&bull;&nbsp;PROGRESS</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul lang="en">
+                <li class="nav__link" id="home" title="Home Page">
+                    <a href="../../index.html">Home</a>
+                </li>
+
+                <li class="nav__link" id="about" title="Learn More about Francesco">
+                    <a href="../about/about.html">About&nbsp;Francesco</a>
+                </li>
+                
+                <li class="nav__link current-page" id="results" title="Success Stories That Francesco Is Proud of">
+                    <a href="#top">Client Results</a>
+                </li>
+                
+                <li class="nav__link" id="events" title="Find Classes, Availibility and Prices">
+                    <a href="../events/events.html">Events</a>
+                </li>
+                
+                <li class="nav__link" id="contact" title="How to Reach Out to Francesco">
+                    <a href="../contact/contact.html">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav__buttons" id="nav__buttons">
+                <div id="language-options" class="language-options">
+                    <div 
+                        class="language-options--english active" 
+                        title="Engish Language Option"
+                        onclick="setLanguage('english')"
+                    ></div>
+        
+                    <div 
+                        class="language-options--italian" 
+                        title="Opzione Italiano"
+                        onclick="setLanguage('italian')"
+                    ></div>
+                </div>
+        
+                <i class="fas fa-chevron-up" title="Hide Navigation" onclick="toggleHeader()"></i>
+            </div>    
+        </nav>
+    </header>
+
+    <div id="burger">
+        <i class="fas fa-bars" title="Show Navigation" onclick="toggleHeader()"></i>
+    </div>
+
+    <main>
+        <h1 class="english" lang="en">Jenna Dunkirk</h1>
+        <h1 class="itaian" lang="it">Jenna Dunkirk Italian</h1>
+        <br />
+        <img 
+            src="../../images/transformations/transformations_5.jpeg" 
+            alt="Jenna Dunkirk"
+        >
+        <br />
+        <p>
+            After her third pregnancy, Jenna found motivation in an unlikely place: the “F” word. “I was 203 pounds and ‘frumpy,'” she says. Jenna felt discouraged, but relied on a personal mantra to get back into the gym. “I can do anything for one minute,” she told herself before stepping on the treadmill or walking over to the weights area. Soon, she was up to sprints and advanced strength-training circuits.
+        </p>
+        <p>
+            A desire to become a fit mom – not just a skinny one – was Jenna’s driving force. Within six months, she lost 70 pounds, reduced her body fat from 31 to 17 percent and increased her strength. As for those abs, she stuck with a clean diet, returned to Pilates and fell in love with circuit training.
+        </p>
+        <p>
+            Between her three pregnancies, Jenna has now lost a combined 180 pounds, which is more than she currently weighs! In her closet, she keeps the XL maternity pants (“the largest pair of pants I’ve ever worn!”) to remind her of how far she’s come. With a stronger body and mind, she’s become a happier mom.
+        </p>
+
+        <br />
+
+        <h1>Matt Daemon</h1>
+        
+        <br />
+        <img 
+            src="../../images/transformations/transformations_1.jpeg" 
+            alt="Matt Daemon"
+        >
+        <br />
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus veniam, hic, illo consequatur cupiditate magnam est nostrum temporibus voluptates dolores quidem neque illum vel aut voluptatum suscipit, soluta officiis. Facere!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam veniam cum unde in sit? Aut dolore similique sequi qui assumenda distinctio ex doloribus, enim nulla, quam molestias fugiat adipisci id!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias id dignissimos natus quod non? Voluptatum veniam tenetur exercitationem quaerat illo officia illum, dolores at eius libero, voluptatem, optio nesciunt minus?
+        </p>
+    </main>
+
+    <script src="../../utility/getQueryParams.js"></script>
+    <script>
+        if(urlParams.lang === 'it') { 
+            setLanguage("italian"); 
+        }
+    </script>
+
+    <script src="../../utility/visit.js"></script>
+    <script>storeVisit('RESULTS')</script>
+</body>
+</html>

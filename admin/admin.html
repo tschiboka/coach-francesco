@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../images/misc/fire.png" type="image/x-icon"/>
+    <script src="https://kit.fontawesome.com/d5efc64c80.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="./admin.css">
+    <title>Coach Francesco Levo | Admin</title>
+</head>
+<body>
+    <div id="user-message-screen">
+        <div id="user-message"></div>
+    </div>
+
+    <header>
+        <i class="fas fa-bars" onclick="handleMenuOnClick()"></i>
+
+        <span id='remaining-time'></span>
+    </header>
+
+    <main>
+        <ul id="main-menu">
+            <li id='emails'><i class="far fa-address-book"></i>Email Addresses</li>
+            <li id='tables' class="selected"><i class="fas fa-table"></i>Tables</li>
+            <ul id="table-list">
+                <li id='messages' class="selected"><i class="far fa-envelope"></i>Messages<i class="far fa-dot-circle"></i></li>
+                <li id='users'><i class="far fa-user"></i>Users<i class="far fa-circle"></i></li>
+                <li id='visits'><i class="far fa-eye"></i>Visits<i class="far fa-circle"></i></li>
+                <li id='subscriptions'><i class="far fa-newspaper"></i>Subscriptions<i class="far fa-circle"></i></li>
+                <li id='logins'><i class="fas fa-sign-in-alt"></i>Logins<i class="far fa-circle"></i></li>
+                <li id='logs'><i class="fas fa-bug"></i>Logs<i class="far fa-circle"></i></li>
+            </ul>
+            <li id='stats'><i class="far fa-chart-bar"></i>Stats</li>
+            <li id='settings'><i class="fas fa-cog"></i>Settings</li>
+            <li id='logout'><i class="fas fa-angle-left"></i>Logout</li>
+        </ul>
+
+        <div id="view-container">
+            <div id="loading-spinner">
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+                <div class="loading-spinner__strike"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <span id="response-status"></span>
+        <span id="request-method"></span>
+        <span id="response-message"></span>
+        <span id="request-path"></span>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./admin.js"></script>
+</body>
+</html>

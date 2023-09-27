@@ -1,0 +1,409 @@
+:root {
+    /* Colour Palette */
+    --accent: #fec84c;  
+    
+    --greyscale1: #121213;
+    --greyscale2: #28282c;
+    --greyscale3: #3a3a40;
+    --greyscale4: #3c3c42;
+    --greyscale5: #4f4f4f;
+    --greyscale6: #4f4f58;
+    --greyscale7: #555;
+    --greyscale8: #777;
+}
+
+@font-face {
+    font-family: "Voyager";
+    src: url("../fonts/Voyager_Bold.ttf");
+    font-display: swap;
+}
+
+#progress-wrapper {
+    position: absolute;
+    width: 100vw;
+    min-height: 100vh;
+    min-height: -webkit-fill-available; /* Mobile devices ignore bottom menu when calculating viewport height */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background: #0e0e0e;
+    color: var(--greyscale4);
+    font-family: "Voyager";
+    font-size: var(--font-med);
+    letter-spacing: 2px;
+    text-shadow: -1px -1px 1px black, 1px 1px 1px rgba(255, 255, 255, 0.1);
+    -webkit-user-select: none; /* Safari */        
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+    user-select: none;         /* Standard */
+    z-index: 101;
+}
+
+#progress__icon__container {
+    width: 200px;
+    height: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 100px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--greyscale1);
+    border-radius: 100%;
+    -webkit-box-shadow: -5px -5px 15px #3a3a40, 5px 5px 15px black;
+            box-shadow: -5px -5px 15px #3a3a40, 5px 5px 15px black;
+    text-shadow: none;
+}
+
+#round-text {
+    position: absolute;
+    height: 200px;
+    animation: 25s circular linear infinite;
+    -webkit-animation: 25s circular linear infinite;
+}
+
+.round-text__letter {
+    position: absolute;
+    top: -40px;
+    left: calc(50% - 10px);
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 140px;
+    width: 20px;
+    color: var(--greyscale8);
+    font-size: var(--font-sml);
+    -webkit-transform-origin: bottom center;
+        -ms-transform-origin: bottom center;
+            transform-origin: bottom center;
+}
+
+#progress__icon__circle--outer {
+    width: 196px;
+    height: 196px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 100%;
+    background: rgba(231, 213, 150, 0.4);
+    background: -webkit-gradient(linear, left bottom, left top, from(var(--accent)), to(rgba(255, 255, 255, 0.4)));
+    background: -o-linear-gradient(bottom, var(--accent), rgba(255, 255, 255, 0.4));
+    background: linear-gradient(0deg, var(--accent), rgba(255, 255, 255, 0.4));
+    animation: 2s circular ease-in-out infinite;
+    -webkit-animation: 2s circular ease-in-out infinite;
+}
+
+#progress__icon__circle--inner {
+    width: 192px;
+    height: 192px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 100%;
+    background: -o-radial-gradient(var(--greyscale2), var(--greyscale2) 10%, var(--greyscale1) 60%);
+    background: radial-gradient(var(--greyscale2), var(--greyscale2) 10%, var(--greyscale1) 60%);
+    -webkit-box-shadow: 1px 1px 10px inset rgba(0, 0, 0, 0.6), 1px 1px 2px rgba(255, 255, 255, 0.2);
+            box-shadow: 1px 1px 10px inset rgba(0, 0, 0, 0.6), 1px 1px 2px rgba(255, 255, 255, 0.2);
+    animation: 2s circular ease-in-out infinite reverse;
+    -webkit-animation: 2s circular ease-in-out infinite reverse;
+}
+
+#progress__icon {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background: url("../images/misc/logo.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.7;
+}
+
+#progressbar-container {
+    display: block;
+    width: 200px;
+    height: 6px;
+    margin: 20px 0;
+    background: var(--greyscale3);
+    border-radius: 5px;
+    border: 1px solid var(--greyscale1);
+    -webkit-box-shadow: 2px 2px 5px black, -3px -3px 10px #3a3a40, 1px 1px 10px inset black;
+            box-shadow: 2px 2px 5px black, -3px -3px 10px #3a3a40, 1px 1px 10px inset black;
+}
+
+#progress-status-indicator {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100vw;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+#progress-status-indicator > span:first-child{
+    width: 150px;
+    padding-right: 10px;
+    text-align: right;
+    border-right: 1px solid var(--greyscale5); 
+}
+
+#progress-status-indicator > span:last-child {
+    width: 150px;
+    padding-left: 10px;
+    border-left: 1px solid var(--greyscale5);
+}
+
+.progress-dot {
+    display: inline-block;
+    font-size: var(--font-med);
+    letter-spacing: -2px;
+    -webkit-transform: translate(-4px, 6px);
+        -ms-transform: translate(-4px, 6px);
+            transform: translate(-4px, 6px);
+    -webkit-animation: 2s dot infinite ease-in-out;
+            animation: 2s dot infinite ease-in-out;
+}
+
+.progress-dot:nth-child(2) {
+    -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s;
+}
+
+.progress-dot:nth-child(3) {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+}
+
+#progress-indicator {
+    width: 0%;
+    height: 5px;
+    background: white;
+    border-radius: 10px;
+    -webkit-box-shadow: 1px 1px 3px inset black;
+            box-shadow: 1px 1px 3px inset black;
+}
+
+#percentage-completed {
+    font-size: var(--font-lrg);
+    color: var(--greyscale6);
+}
+
+#current-loading-image {
+    height: 25px;
+    max-width: calc(100vw - 40px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: none;      /* INTENTIONALLY DISABLED */
+    font-size: var(--font-sml);
+    letter-spacing: 1px;
+    text-shadow: none;
+}
+
+.progress-corners {
+    position: absolute;
+    width: 100vw;
+    min-height: 100vh;
+    min-height: -webkit-fill-available; /* Mobile devices ignore bottom menu when calculating viewport height */
+    cursor: wait;
+}
+
+.progress-corners>div {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+.progress-corners>div:nth-child(1) {
+    top: 20px;
+    left: 20px;
+    border-top: 1px solid var(--greyscale7);
+    border-left: 1px solid var(--greyscale7);
+}
+
+.progress-corners>div:nth-child(2) {
+    top: 20px;
+    right: 20px;
+    border-top: 1px solid var(--greyscale7);
+    border-right: 1px solid var(--greyscale7);
+}
+
+.progress-corners>div:nth-child(3) {
+    bottom: 20px;
+    right: 20px;
+    border-bottom: 1px solid var(--greyscale7);
+    border-right: 1px solid var(--greyscale7);
+}
+
+.progress-corners>div:nth-child(4) {
+    bottom: 20px;
+    left: 20px;
+    border-bottom: 1px solid var(--greyscale7);
+    border-left: 1px solid var(--greyscale7);
+}
+
+#progress__footer {
+    position: absolute;
+    width: 100vw;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    bottom: 12px;
+    color: var(--greyscale5);
+}
+
+#progress__footer > * {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+#progress__footer--emphasis {
+    color: var(--accent--opacity07);
+    text-shadow: -1px -1px 1px var(--accent--opacity04), 2px 2px 2px black;
+}
+
+#progress__footer--titles {
+    color: var(--accent--opacity04);
+}
+
+#progress__footer--smallprint {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: var(--font-sml);
+    color: var(--greyscale2);
+    text-shadow: none;
+}
+
+#progress__footer > *:first-child, #progress__footer > *:last-child {
+    margin: 0, 30px;
+    padding-right: 90px;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+}
+
+@-webkit-keyframes dot {
+    10% {
+        color: var(--greyscale8);
+        -webkit-transform: translate(-4px, -2px);
+                transform: translate(-4px, -2px);
+    }
+    40% {
+        -webkit-transform: translate(-4px, 2px);
+                transform: translate(-4px, 2px);
+    }
+    100% {
+        -webkit-transform: translate(-4px, 4px);
+                transform: translate(-4px, 4px);
+    }
+}
+
+@keyframes dot {
+    10% {
+        color: var(--greyscale8);
+        -webkit-transform: translate(-4px, -2px);
+                transform: translate(-4px, -2px);
+    }
+    40% {
+        -webkit-transform: translate(-4px, 2px);
+                transform: translate(-4px, 2px);
+    }
+    100% {
+        -webkit-transform: translate(-4px, 4px);
+                transform: translate(-4px, 4px);
+    }
+}
+
+@-webkit-keyframes circular {
+    from {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
+
+@keyframes circular {
+    from {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
+
+/* Portrait and Landscape */
+@media screen and (max-width: 768px) { 
+    #progress__footer > *:not(legend), #progress__footer legend > *:not(#progress__footer--emphasis) {
+        display: none;
+    }
+
+    #progress__footer--emphasis {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+    }
+
+    #current-loading-image {
+        font-size: var(--font-xsm);
+    }
+
+    .progress-corners > div {
+        width: 20px;
+        height: 20px;
+    }
+}

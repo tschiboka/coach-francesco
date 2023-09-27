@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../../images/misc/fire.png" type="image/x-icon"/>
+    <script src="https://kit.fontawesome.com/d5efc64c80.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="unsubscribe.css">
+    <title>Coach Francesco Levo | Unsubscribe</title>
+</head>
+<body>
+    <main>
+        <img src="../../images/avatar.jpg" alt="Avatar" />
+    
+        <h1 id="main-message">I am sorry to see you leaving!</h1>
+    
+        <p id="explanation-message">
+            After submitting your email address you will receive an email from <span>contact@francescolevopt.com</span> with a verification link.
+            The link will only be active for 2 hours.
+        </p>
+
+        <div>
+            <span id="error-message">
+                <i class="fas fa-asterisk"></i>Error message
+            </span>
+            
+            <form action="">
+                <fieldset>
+                    <input 
+                        id="unsubscribe-input"
+                        name="email" 
+                        type="email" 
+                        inputmode="email"
+                        max-length="256"
+                        placeholder="&#9993;  YOUR_EMAIL@DOMAIN.COM"
+                        title="Your Email Address"
+                        area-label="Email"
+                        title="Email"
+                        onblur="validateInput(this)"
+                        onsubmit="submit(this)"
+                        required
+                    >
+                        
+                    <button 
+                        id="submit-btn"
+                        type="button"
+                        title="Submit Email"
+                    >
+                    <i class="far fa-paper-plane"></i>
+                    </button>
+                </fieldset>
+            </form>
+
+            <span id="submit-message"></span>
+        </div>
+
+        <div id="loading-spinner">
+            <div class="loading-spinner__strike"></div>
+            <div class="loading-spinner__strike"></div>
+            <div class="loading-spinner__strike"></div>
+            <div class="loading-spinner__strike"></div>
+            <div class="loading-spinner__strike"></div>
+            <div class="loading-spinner__strike"></div>
+            <div class="loading-spinner__strike"></div>
+            <div class="loading-spinner__strike"></div>
+            <div class="loading-spinner__strike"></div>
+            <div class="loading-spinner__strike"></div>
+            <div class="loading-spinner__strike"></div>
+            <div class="loading-spinner__strike"></div>
+        </div>
+    </main>
+</body>
+
+<script src="./unsubscribe.js"></script>
+
+<script src="../../utility/visit.js"></script>
+<script>storeVisit('UNSUBSCRIBE')</script>
+
+</html>

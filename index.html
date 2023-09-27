@@ -1,13 +1,797 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpg" href="/src/assets/images/logo_dark.jpg" />
-    <meta name="description" content="Francesco Levo - Personal Trainer Portfolio Website. Specialised: Weight, Bodyweight, Healthy Lifestyle, Nutritional Advice">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Francesco Vero Personal Trainer Portfolio Website Specialised: Weight, Bodyweight, Healthy Lifestyle, Nutritional Advice">
+    <meta name="theme-color" content="#0E0E0E">
+    
+    <script src="./utility/progress.js"></script>
+    <link rel="stylesheet" href="./utility/progress.css">
+    
+    <script src="https://kit.fontawesome.com/d5efc64c80.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./images/misc/fire.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="./pages/index/index.css">
+    <link rel="stylesheet" href="./utility/header.css">
+
+    <title>Coach Francesco Levo | Home</title>
+</head>
+
+<body>
+
+    <!------- Initial Progress Bar for Loading Images ------->
+    
+    <div id="progress-wrapper">
+        <div id="progress__icon__container">
+            <div id="round-text"></div>
+            <div id="progress__icon__circle--outer">
+                <div id="progress__icon__circle--inner">
+                    <div id="progress__icon"></div>
+                </div>
+            </div>
+        </div>
+
+        <span id="progress-status-indicator">
+            <span id="percentage-completed">0</span>
+            
+            <span>
+                <span id="loading-text">LOADING</span>
+                <span class="progress-dot">&bull;</span>
+                <span class="progress-dot">&bull;</span>
+                <span class="progress-dot">&bull;</span>
+            </span>
+        </span>
+
+        <div id="progressbar-container">
+            <div id="progress-indicator"></div>
+        </div>
+
+        <div>
+            <span id="current-loading-image">...</span>
+        </div>
+
+        <div class="progress-corners">
+            <div></div><div></div><div></div><div></div>
+            
+            <span id="progress__footer">
+                <span></span>
+
+                <legend>
+                    <span id="progress__footer--emphasis">FRANCESCO LEVO</span>
+                    <span id="progress__footer--titles">&nbsp;&nbsp;&bull;&nbsp;&nbsp;PERSONAL TRAINER&nbsp;&nbsp;&bull;&nbsp;&nbsp;OFFICIAL WEBSITE</span>
+                </legend>
+
+                <span id="progress__footer--smallprint">( CREATED BY: TIVADAR DEBNAR )</span>
+            </span>
+        </div>
+    </div>
+
+    <!--------------- Horizontal Navigationbar -------------->
+    <header id="header">
+        <div class="branding" id="branding">
+            <img 
+                src="./images/misc/logo.png" 
+                alt="logo" 
+                title="Logo"
+                width="auto"
+                >
+
+            <div class="header__title">
+                <span class="header__title__name">FRANCESCO&nbsp;LEVO</span>
+                
+                <span class="header__title__motto">WORK&nbsp;&bull;&nbsp;BELIEVE&nbsp;&bull;&nbsp;PROGRESS</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul class="english" lang="en">
+                <li class="nav__link current-page" id="home" title="Home Page">
+                    <a href="#top">Home</a>
+                </li>
+
+                <li class="nav__link" id="about" title="Learn More about Francesco">
+                    <a href="./pages/about/about.html">About&nbsp;Francesco</a>
+                </li>
+                
+                <li class="nav__link" id="results" title="Success Stories That Francesco Is Proud of">
+                    <a href="./pages/results/results.html">Client Results</a>
+                </li>
+                
+                <li class="nav__link" id="events" title="Find Classes, Availibility and Prices">
+                    <a href="./pages/events/events.html">Events</a>
+                </li>
+                
+                <li class="nav__link" id="contact" title="How to Reach Out to Francesco">
+                    <a href="./pages/contact/contact.html">Contact</a>
+                </li>
+            </ul>
+
+            <ul class="italian" lang="it">
+                <li class="nav__link current-page" id="home" title="Home Page">
+                    <a href="#top">Home</a>
+                </li>
+
+                <li class="nav__link" id="about" title="Learn More about Francesco">
+                    <a href="./pages/about/about.html?lang=it">About&nbsp;Francesco</a>
+                </li>
+                
+                <li class="nav__link" id="results" title="Success Stories That Francesco Is Proud of">
+                    <a href="./pages/results/results.html?lang=it">Client Results</a>
+                </li>
+                
+                <li class="nav__link" id="events" title="Find Classes, Availibility and Prices">
+                    <a href="./pages/events/events.html?lang=it">Events</a>
+                </li>
+                
+                <li class="nav__link" id="contact" title="How to Reach Out to Francesco">
+                    <a href="./pages/contact/contact.html?lang=it">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav__buttons" id="nav__buttons">
+                <div id="language-options" class="language-options">
+                    <div 
+                        class="language-options--english active" 
+                        title="Engish Language Option"
+                        onclick="setLanguage('english')"
+                    ></div>
+        
+                    <div 
+                        class="language-options--italian" 
+                        title="Opzione Italiano"
+                        onclick="setLanguage('italian')"
+                    ></div>
+                </div>
+        
+                <i class="fas fa-chevron-up" title="Hide Navigation" onclick="toggleHeader()"></i>
+            </div>    
+        </nav>
+    </header>
+
+    <div id="burger">
+        <i class="fas fa-bars" title="Show Navigation" onclick="toggleHeader()"></i>
+    </div>
+
+    <main>
+        <section class="welcome" id="welcome_en" onclick="scrollAwayWelcome()" title="Click to Scroll">
+            <img data-src="./images/welcome.png" class="initial-img" alt="Francesco Welcome Image" />
+            
+            <div class="welcome__text">
+                <h1>MEET&nbsp;<span>FRANCESCO</span></h1>
+
+                <h2>COACH&nbsp;&amp;&nbsp;PERSONAL&nbsp;TRAINER</h2>
+                
+                <i class="fas fa-sort-down"></i>
+            </div>
+        </section>
+
+        <section class="introduction english" id="introduction_en" lang="en">
+            <h1>Welcome to my website!</h1>
+    
+            <p>
+                I have been a sports enthusiast since a young age from a varied
+                range of sport like Swimming, Football, Rugby, Judo, Thai Boxing,
+                and lately, Body Building. With my knowledge and passion for 
+                training and teaching and your motivation and consistency, 
+                we will be able to achieve what you 
+                <nobr>believed was impossible.</nobr>
+                <br>
+                <br>
+                The sky is the limit!
+            </p>
+        </section>
+
+        <section class="introduction italian" id="introduction_it" lang="it">
+            <h1>Benvenuto nel mio sito web!</h1>
+    
+            <p>
+                Sono un appassionato di sport sin da quando ero piccolo, 
+                ho praticato un’ infinità di sport come: Nuoto, Calcio,
+                Rugby, Judo, Thai boxing ed ultimamente BodyBuilding. 
+                Grazie alla mia conoscenza del corpo umano e alla mia passione 
+                per l’ insegnamento ed alla tua motivazione e costanza saremo, 
+                in grado di ottenere risultati che
+
+                <nobr>pensavi fossero irraggiungibili.</nobr>
+                <br>
+                <br>
+                The sky is the limit!
+            </p>
+        </section>
+
+        <section class="not-your-average-PT english" lang="en">
+            <h1>I am not your average personal trainer!</h1>
+
+            <p>
+                I understand. I have been where you are right now. Either you are injured, 
+                skinny, or overweight. This condition is temporary. I could overcome every
+                situation with consistency and dedication, and so can you. With my help, 
+                you will see improvements within the first two weeks of my training programme. 
+                My training approach suits everyone, and I make sure everyone performs at his 
+                best every time. That is why I keep my knowledge updated in terms of training 
+                and nutrition to 
+                <nobr>serve you better.</nobr>
+                <br>
+                <br>
+                Once we reached the sky, we aim for the moon!
+            </p>
+        </section>
+
+        <section class="not-your-average-PT italian" lang="it">
+            <h1>Non sono un coach nella media!</h1>
+
+            <p>
+                Ti capisco. Non importa che tu sia: Infortunato, Magro o in sovrappeso, queste
+                sono delle condizioni temporanee. Con costanza e dedizione sono sempre riuscito 
+                a migliore, se ci sono riuscito io puoi farcela anche tu! Col mio aiuto vedrai 
+                dei miglioramenti già nelle prime due settimane. I miei programmi di allenamento 
+                sono fatti su misura per Te e sono pensati per farti rendere sempre al massimo. 
+                Inoltre mi tengo sempre aggiornato in termini di nutrizione e allenamento in modo da
+
+                <nobr>poterti aiutare meglio.</nobr>
+                <br>
+                <br>
+                Once we reached the sky, we aim for the moon!
+            </p>
+        </section>
+
+        <section class="how-i-can-help english" id="goal_en" lang="en">
+            <h1>How I can help to reach your goals?</h1>
+
+            <div>
+                <p>
+                    I need to understand your goal. To do so, we will go through a 
+                    consultation. Afterwards, we will define how can you reach your
+                    goal in detail - smart goal. The goal must be realistic, for 
+                    example, dropping a dress size within a month. When the goal 
+                    is set, I will provide a training programme and 
+                    <nobr>a nutrition plan.</nobr>
+                </p>
+
+                <img data-src="./images/training_2.png" alt="Training in the Park" class="initial-img" width="200" height="200">
+            </div>
+        </section>
+
+        <section class="how-i-can-help italian" id="goal_it" lang="it">
+            <h1>Come posso aiutarti?</h1>
+
+            <div>
+                <p>
+                    Prima di tutto è importante capire qual è il tuo fine, cosa cerchi
+                    di raggiungere e come intendi farlo, tutto questo avverrà durante la 
+                    consultazione. In seguito definiremo del dettaglio come impostare 
+                    allenamento e nutrizione. Infine concorderemo un obbiettivo mensile
+                    che dovrai raggiungere, come per esmpio: Perdere una taglia di 
+
+                    <nobr>pantaloni in 4 settimane.</nobr>
+                </p>
+
+                <img data-src="./images/training_2.png" alt="Training in the Park" class="initial-img" width="200" height="200">
+            </div>
+        </section>
+
+        <section class="goal-options english" id="priorities_en" lang="en">
+            <h1>Priorities</h1>
+
+            <div id="goal-options__wrapper" >
+                <button class="active" onclick="setGoalOption(event)" data-paragraph="loose-weight">
+                    Fat Loss
+                    <div class="active-option-arrow"></div>
+                </button>
+
+                <button onclick="setGoalOption(event)" data-paragraph="build-muscle">
+                    Build Muscle
+                    <div class="active-option-arrow"></div>
+                </button>
+                
+                <button onclick="setGoalOption(event)" data-paragraph="healthy-life-style">
+                    Healthy Life Style
+                    <div class="active-option-arrow"></div>
+                </button>
+
+                <button onclick="setGoalOption(event)" data-paragraph="nutritional-advice">
+                    Nutritional Advice
+                    <div class="active-option-arrow"></div>
+                </button>
+            </div>
+
+            <p class="loose-weight">
+                <img data-src="./images/measure_tape.png" alt="Measure Tape" class="lazy" width="200" height="200">
+
+                Most of us think that the number on the scale is the only indicator of a correct 
+                amount of adipose tissue  - fat - in our body. Nothing further from the truth; 
+                it certainly helps us to track our progress but what matters is the overall body 
+                composition - the percentage of adipose tissue, muscles, and water.
+                <br />
+                If we were 
+                only considering this data, athletes with a lot of muscles would be classified 
+                as overweight.  Therefore, do not be scared if at the beginning of our journey 
+                you may notice that the number on the scale is increasing. It is probably just 
+                water and new muscle tissues. To burn fat, your body must be in a calorie deficit, 
+                which means you must burn more calories than you eat.
+            </p>
+
+            <p class="build-muscle no-display">
+                <img data-src="./images/building_muscle.png" alt="Building Muscle" class="lazy" width="200" height="200">
+
+                In my opinion, building muscle is more complicated than losing fat. The main reason 
+                is that your body doesn't want more muscles because it doesn't need more - lack of
+                stimulus. Therefore, it requests an exterior factor to force your body to increase 
+                muscles size - weights. 
+                <br />
+                You must be consistent with your training and nutrition 
+                because you will probably lose some of your gains as soon as you stop. Moreover, 
+                this is an ongoing process. Of course, you will have holidays and days off but to 
+                keep an athletic physique is important to keep going.
+            </p>
+
+            <p class="healthy-life-style no-display">
+                <img data-src="./images/flat_belly.png" alt="Healty Life Style" class="lazy" width="200" height="200">
+                
+                A healthy lifestyle in terms of training means that you exercise either your heart - 
+                cardio - and your body (muscles) with, that said I do not believe you must run a 
+                marathon, cycle the tour de France, or become a powerlifter. 
+                <br />
+                Still, I fervently 
+                believe a little of everything is necessary to do. In terms of nutrition, it is a 
+                little difficult to say what a healthy lifestyle is since everyone is different, 
+                but in general, 5 portions of fruit and vegetables are recommended every day as 
+                long as plenty of water and protein with every meal.
+            </p>
+
+            <p class="nutritional-advice no-display">
+                <img data-src="./images/healthy_food.png" alt="Nutrition" class="lazy" width="200" height="200">
+
+                If you either want to lose fat or build muscle or having a healthy lifestyle, 
+                what you eat is crucial for your goal and health. I do not believe that you must 
+                ban some specific food from your diet but more likely just limit them to a small 
+                amount throughout the whole week.
+                <br />
+                Macros
+                <br />
+                The three macronutrients that we find in our foods are carbohydrates, proteins, 
+                and fat, and yes, you need all of them to make your body work properly. Carbs are 
+                the primary fuel for your body, proteins are needed to build your muscle, so it is 
+                important to eat them regularly, while fats provide both energy and fatty acids. 
+            </p>
+        </section>
+
+        <section class="goal-options italian" id="priorities_it" lang="it">
+            <h1>Priorità</h1>
+
+            <div id="goal-options__wrapper" >
+                <button class="active" onclick="setGoalOption(event)" data-paragraph="loose-weight">
+                    Perdita di peso
+                    <div class="active-option-arrow"></div>
+                </button>
+
+                <button onclick="setGoalOption(event)" data-paragraph="build-muscle">
+                    Crescita muscolare
+                    <div class="active-option-arrow"></div>
+                </button>
+                
+                <button onclick="setGoalOption(event)" data-paragraph="healthy-life-style">
+                    Stile di vita salutare
+                    <div class="active-option-arrow"></div>
+                </button>
+
+                <button onclick="setGoalOption(event)" data-paragraph="nutritional-advice">
+                    <nobr>Consigli sulla nutrizione</nobr>
+                    <div class="active-option-arrow"></div>
+                </button>
+            </div>
+
+            <p class="loose-weight">
+                <img data-src="./images/measure_tape.png" alt="Measure Tape" class="lazy" width="200" height="200">
+                
+                Molti di noi pensano che il numero che riporta la bilancia sia IL VALORE 
+                ultimo che ci aggiorna sulla quantità di adipe (Grasso) accumulata nel 
+                nostro corpo. In realtà non è così, sicuramente il dato della bilancia ci 
+                aiuta a capire in che direzione siamo andando ma non è un dato completamente 
+                accurato.
+                <br />
+                Infatti se ci basassimo solo su questo dato individui con un 
+                elevata muscolatura verrebbero classificati come sovrappeso. Quindi non è un 
+                problema se all’ inizio del nostro percorso si vede il peso sulla bilancia 
+                crescere, probabilmente sarà solo acqua e nuovo tessuto muscolare. Per perdere 
+                adipe efficacemente è importante bruciare più calorie di quante se ne assumano.
+            </p>
+
+            <p class="build-muscle no-display">
+                <img data-src="./images/building_muscle.png" alt="Building Muscle" class="lazy" width="200" height="200">
+            
+                Personalmente penso che sia più difficile incrementare la propria massa muscolare 
+                che perdere adipe (grasso) e la ragione è che il nostro corpo non sente il bisogno 
+                di mettere su muscoli, il che è dovuto a una mancanza di stimoli (allenamento). 
+                <br />
+                É quindi importante includere uno specifico allenamento coi sovraccarichi (Pesi) 
+                per aumentare la propria massa muscolare. Infine è fondamentale rimanere costanti 
+                sia a livello di allenamento sia a livello di nutrizione perché è molto probabile 
+                che una volta fermi si rischi di perdere tutto quello che si è duramente costruito. 
+                Chiaramente ci saranno momenti di stop come vacanze e giorni di riposo ma se si vuole 
+                mantenere un fisico atletico è imperativo non fermarsi.
+            </p>
+
+            <p class="healthy-life-style no-display">
+                <img data-src="./images/flat_belly.png" alt="Healty Life Style" class="lazy" width="200" height="200">
+            
+                Uno stile di vita sano in termini di allenamento significa allenare sia il cuore 
+                (Cardio) e il tuo corpo (Muscoli), non intendo dire che devi correre una maratona, 
+                partecipare al Giro d’ Italia o diventare campione mondiale di pesistica, però 
+                sono certo che entrambe le cose siano necessarie.
+                <br />
+                Uno stile di vita sano per quello
+                che riguarda l’ alimentazione è un po’ più difficile da definire in quanto ognuno 
+                è diverso, tuttavia vengono raccomandati 5 porzioni di frutta e/o verdura, molta 
+                acqua e proteine a ogni pasto.
+            </p>
+
+            <p class="nutritional-advice no-display">
+                <img data-src="./images/healthy_food.png" alt="Nutrition" class="lazy" width="200" height="200">
+
+                Che tu voglia perdere adipe, accrescere la tua massa muscolare o vivere uno stile 
+                di vita più sano, è indispensabile mangiare in maniera salutare. Non sono dell’ 
+                idea che tu debba eliminare alcuni alimenti dalla tua dieta ma piutosto cercare di 
+                limitare tali alimenti durante la settimana.
+                <br />
+                Macronutrienti
+                <br />
+                I tre macronutrienti che troviamo nel cibo sono: Carboidrati, Proteine e Grassi e 
+                si il tuo corpo ha bisogno di tutti e tre per funzionare al meglio. I carboidrati 
+                sono la principale fonte di energia dell’ organismo, le proteine servono a ricostruire 
+                i muscoli danneggiati mentre i grassi forniscono energia ed aiutano il trasporto di 
+                vitamine.
+            </p>
+        </section>
+
+        <section class="transformations">
+            <h1>See some of my clients results</h1>
+
+            <div class="carousel">
+                <div class="carousel__gallery" onclick="carouselMove(currentCarouselImgIndex + 1); carouselLoop = false;" title="Click to Stop Carousel Loop">
+                    <img id="gallery-img_last" data-src="./images/transformations/transformations_8.jpeg" alt="Transformation Result Photo 8" width="500" height="500" class="lazy">
+                    <img id="gallery-img_1" data-src="./images/transformations/transformations_1.jpeg" alt="Transformation Result Photo 1" width="500" height="500" class="lazy">
+                    <img id="gallery-img_2" data-src="./images/transformations/transformations_2.jpeg" alt="Transformation Result Photo 2" width="500" height="500" class="lazy">
+                    <img id="gallery-img_3" data-src="./images/transformations/transformations_3.jpeg" alt="Transformation Result Photo 3" width="500" height="500" class="lazy">
+                    <img id="gallery-img_4" data-src="./images/transformations/transformations_4.jpeg" alt="Transformation Result Photo 4" width="500" height="500" class="lazy">
+                    <img id="gallery-img_5" data-src="./images/transformations/transformations_5.jpeg" alt="Transformation Result Photo 5" width="500" height="500" class="lazy">
+                    <img id="gallery-img_6" data-src="./images/transformations/transformations_6.jpeg" alt="Transformation Result Photo 6" width="500" height="500" class="lazy">
+                    <img id="gallery-img_7" data-src="./images/transformations/transformations_7.jpeg" alt="Transformation Result Photo 7" width="500" height="500" class="lazy">
+                    <img id="gallery-img_8" data-src="./images/transformations/transformations_8.jpeg" alt="Transformation Result Photo 8" width="500" height="500" class="lazy">
+                    <img id="gallery-img_first" data-src="./images/transformations/transformations_1.jpeg" alt="Transformation Result Photo 1" width="500" height="500" class="lazy">
+                </div>
+
+                <nav class="carousel__navigation">
+                    <button id="carousel__navigation__previous-btn" onclick="carouselMove(currentCarouselImgIndex - 1); carouselLoop = false;">
+                        <i class="fas fa-caret-left"></i>
+                    </button>
+
+                    <ul class="carousel__navigation__indicator-list">
+                        <li id="gallery-img-indicator_1" class="carousel__navigation__indicator-list__item" onclick="carouselMove(1); carouselLoop = false;"></li>
+                        <li id="gallery-img-indicator_2" class="carousel__navigation__indicator-list__item" onclick="carouselMove(2); carouselLoop = false;"></li>
+                        <li id="gallery-img-indicator_3" class="carousel__navigation__indicator-list__item" onclick="carouselMove(3); carouselLoop = false;"></li>
+                        <li id="gallery-img-indicator_4" class="carousel__navigation__indicator-list__item" onclick="carouselMove(4); carouselLoop = false;"></li>
+                        <li id="gallery-img-indicator_5" class="carousel__navigation__indicator-list__item" onclick="carouselMove(5); carouselLoop = false;"></li>
+                        <li id="gallery-img-indicator_6" class="carousel__navigation__indicator-list__item" onclick="carouselMove(6); carouselLoop = false;"></li>
+                        <li id="gallery-img-indicator_7" class="carousel__navigation__indicator-list__item" onclick="carouselMove(7); carouselLoop = false;"></li>
+                        <li id="gallery-img-indicator_8" class="carousel__navigation__indicator-list__item" onclick="carouselMove(8); carouselLoop = false;"></li>
+                    </ul>
+
+                    <button id="carousel__navigation__next-btn" onclick="carouselMove(currentCarouselImgIndex + 1); carouselLoop = false;">
+                        <i class="fas fa-caret-right"></i>
+                    </button>
+                </nav>
+            </div>
+        </section>
+
+        <section class="feedbacks">
+            <div>
+                <img data-src="./images/face_1.png" alt="Feedback Photo" class="lazy" />
+                
+                <p>
+                    <q>
+                        Simply, with Francesco's help I achieved my goal of putting on weight, 
+                        which I have struggled with for years. With his help I have 
+                        gained 8kg+ and my strength has more than doubled. He really 
+                        helped me by giving me the tools to grow, such as diet and training
+                        regimes. If I had not moved out of London I would 
+                        still be working with Francesco today.
+                    </q>
+                    <br> 
+                    - Gabriel (34)
+                </p>
+            </div>
+
+            <div>
+                <img data-src="./images/face_2.png" alt="Feedback Photo" class="lazy" />
+                
+                <p>
+                    <q>
+                        I was skinny but too unmotivated and shy to go to the gym. 
+                        I had Frankie as my personal trainer and now I noticed a 
+                        positive change in my appearance. I am happy and now more confident
+                        with myself. 
+                    </q>
+                    <br> 
+                    - Sam (41)
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer__top-wrapper">
+            <div class="sign-up">
+                <h2 class="english">WANT TO LEARN MORE?</h2>
+                <h2 class="italian">Vuoi saperne di più?</h2>
+    
+                <h3 class="english">SIGN UP FOR MY FREE PDF-S WITH ADVICES AND TIPS ON HOW TO GET IN YOUR BEST SHAPE</h3>
+                <h3 class="italian">Iserisci il tuo indirizzo email per poter scaricare dei PDF per migliorare la tua condizione.</h3>
+
+                <span id="signup__input__email--invalid" class="input__error-msg"></span>
+                
+                <form id="sign-up" action="">
+                    <fieldset>
+                        <input 
+                            id="signup-email"
+                            name="email" 
+                            type="email" 
+                            inputmode="email"
+                            max-length="256"
+                            placeholder="&#9993;  USER@DOMAIN.COM"
+                            title="Your Email Address"
+                            onfocus="handleEmailInputOnFocus(event)"
+                            onkeydown="handleEmailInputKeyDown(event)"
+                            tabindex="0" 
+                            area-label="Email"
+                            title="Email"
+                            required
+                        >
+                            
+                        <button 
+                            type="button"
+                            title="Submit Email"
+                            onclick="setCaptchaDisplay(event)"
+                        >
+                        <i class="far fa-paper-plane"></i>
+                        </button>
+                    </fieldset>
+
+                    <div id="captcha" onclick="setCaptchaDisplay(event)" title="Click Anywhere to Close!">
+                        <div onclick="setCaptchaDisplay(event)">
+                            <button
+                                type="button"
+                                class="close-btn"
+                                id="close-captcha-btn"
+                                title="Close Signup Form"
+                                onclick="setCaptchaDisplay(event)"
+                            >&times;</button>
+
+                            <fieldset>
+                                I value personal communication!
+                                <br> 
+                                How can I address you in the future?
+                                
+                                <span id="signup__input__name--invalid" class="input__error-msg"></span>
+                                
+                                <input 
+                                    id="signup-name"
+                                    name="name"
+                                    type="text" 
+                                    maxlength="50"
+                                    placeholder="FIRST NAME..."
+                                    title="My friends call me..."
+                                    onfocus="handleNameInputOnFocus(event)"
+                                    onkeydown="handleNameInputKeyDown(event)"
+                                    autocomplete="name"
+                                    inputmode="text"
+                                    area-label="Name"
+                                    title="Name"
+                                    tabindex="0"
+                                >
+        
+                                <div>
+                                    <input 
+                                        type="checkbox" 
+                                        name="prefer-not-provide-name" 
+                                        id="signup-anonymise"
+                                        onchange="handleAnonymiseOnChange(event)"
+                                        onkeydown="handleAnonymiseOnKeyDown(event)"
+                                        unchecked
+                                    >
+
+                                    <label for="prefer-not-provide-name">Anonymise me!</label>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <img data-src="./images/misc/robot.png" alt="robot" class="lazy" width="200" height="200">
+                                Robots are not welcome here!
+                                
+                                <div class="captcha-wrapper">
+                                    <div 
+                                        class="g-recaptcha brochure__form__captcha" 
+                                        data-sitekey="6LefM20cAAAAAJboPkzuaaJoBHZf6p-qJJuHEmvb"
+                                        data-theme="dark"
+                                        data-callback="verifyCaptcha"
+                                        area-label="Captcha checkbox: I'm not a robot"
+                                        title="Captcha checkbox: I'm not a robot"
+                                    ></div>
+                            </div>
+                        </fieldset>
+                        
+                        <span id="form-message"></span>
+                    
+                        <button 
+                            id="form-submit-btn"
+                            type="button" 
+                            onclick="submitSignup()"
+                            tabindex="3"
+                        >Submit</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+    
+            <div class="social">
+                <a href="https://www.facebook.com/Francesco-Levo-PT-114070063658148" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    
+                <a href="https://www.instagram.com/_francescolevo_pt/?hl=it" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    
+                <a href="https://twitter.com/CoachFrankieLDN?s=08" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+    
+                <a title="Youtube"><i class="fab fa-youtube"></i></a>
+    
+                <a href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQGF5HmIDRdCuwAAAXucIEoYUyFunbINmZ3hCtY7h0GttpXGh_w9GxXRjxM5lFcUR2bg_v7jZg1U74CeEpoFQHnUPrEbrY1PLpPrWBkjGBhlYvnLIPzLcN-RPKI_6gQxAyq7udU=&originalReferer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Ffrancesco-levo-4417511a9" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    
+                <a href="https://goo.gl/maps/qz74CjkijrFW9yrX7" target="_blank" title="Location"><i class="fas fa-map-marker-alt"></i></a>
+    
+                <a title="Email"><i class="far fa-envelope"></i></a>
+    
+                <a title="Phone"><i class="fas fa-mobile-alt"></i></a>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <svg viewBox="0 0 24 24">
+                <title>Cookies</title>
+                <g>
+                    <circle cx="19.5" cy="11.5" r=".5"></circle>
+                    <circle cx="10.5" cy="11.5" r=".5"></circle>
+                    <circle cx="14.5" cy="16.5" r=".5"></circle>
+                    <circle cx="10.5" cy="17.5" r=".5"></circle>
+                    <circle cx="18.5" cy="6.5" r=".5"></circle>
+                    <circle cx="19.25" cy="4.75" r=".75"></circle>
+                    <circle cx="6.25" cy="9.75" r=".75"></circle>
+                    <circle cx="8.25" cy="11.75" r=".75"></circle>
+                    <circle cx="13.25" cy="17.75" r=".75"></circle>
+                    <path d="M9.5 7C8.673 7 8 7.673 8 8.5S8.673 10 9.5 10 11 9.327 11 8.5 10.327 7 9.5 7zm0 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1z"></path>
+                    <circle cx="18.5" cy="8.5" r=".75"></circle>
+                    <circle cx="20.25" cy="6.5" r=".75"></circle>
+                    <path d="M19.791 14.099c-.006.002-.599.154-1.038.154-1.103 0-2-.898-2-2 0-.287.258-1.045.441-1.386.094-.16.107-.451.008-.609-.188-.299-.525-.272-.702-.258-.827 0-1.5-.673-1.5-1.5 0-.852.59-1.583 1.12-1.706a.5.5 0 0 0 .1-.938c-.006-.003-.72-.365-.72-.856 0-.254.073-.567.164-.698a.498.498 0 0 0-.218-.745c-1.196-.502-2.48-.566-3.466-.566-4.962 0-9 4.037-9 9s4.038 9 9 9c3.298 0 6.334-1.767 7.734-4.503.339-.662.667-1.713.68-1.757a.5.5 0 1 0-.604-.633zm-.968 1.934c-1.23 2.405-3.916 3.958-6.843 3.958-4.41 0-8-3.589-8-8s3.59-8 8-8c1.093 0 1.907.096 2.612.317A2.8 2.8 0 0 0 14.5 5c0 .53.271.943.565 1.236A2.9 2.9 0 0 0 14 8.5c0 1.23.893 2.255 2.064 2.462-.162.425-.311.94-.311 1.291 0 1.789 1.584 3.184 3.413 2.975a7.96 7.96 0 0 1-.343.805z"></path>
+                    </g>
+            </svg>
+            
+            <small>
+                This site uses cookies. Cookies are small text files placed on your computer by
+                websites that you visit. They are widely used in order to make websites work or
+                work more efficiently. By using this website, you agree 
+                <nobr>with our cookie policy.</nobr>
+                
+                Protecting our clients' and visitors' privacy is our top priority, therefore any 
+                information collected through this website will be handled confidentially
+                and will not be shared, rented or used by third parties
+                <nobr>without your consent.</nobr>
+            </small>
+        </div>
+
+        <div class="footer__bottom-wrapper">
+            <div class="footer__links">
+                <h1>MAIN</h1>
+                <a class="english" href="#welcome_en">HOME</a>
+                <a class="italian" href="#welcome_en?lang=it">HOME</a>
+
+                <a class="english" href="./pages/about/about.html">ABOUT FRANCESCO</a>
+                <a class="italian" href="./pages/about/about.html?lang=it">ABOUT FRANCESCO</a>
+
+                <a class="english" href="./pages/results/results.html">CLIENT RESULTS</a>
+                <a class="italian" href="./pages/results/results.html?lang=it">CLIENT RESULTS</a>
+
+                <a class="english" href="./pages/events/events.html">EVENTS</a>
+                <a class="italian" href="./pages/events/events.html?lang=it">EVENTS</a>
+
+                <a class="english" href="./pages/contact/contact.html">CONTACT</a>
+                <a class="italian" href="./pages/contact/contact.html?lang=it">CONTACT</a>
+
+                <a class="english" href="./pages/unsubscribe/unsubscribe.html">UNSUBSCRIBE</a>
+                <a class="italian" href="./pages/unsubscribe/unsubscribe.html?lang=it">UNSUBSCRIBE</a>
+            </div>
+
+            <div class="footer__links">
+                <h1>TOPICS</h1>
+                <a class="english" href="#introduction_en">INTRODUCTION</a>
+                <a class="italian" href="#introduction_it">INTRODUCTION</a>
+                
+                <a class="english" href="#goal_en">REACH YOUR GOALS</a>
+                <a class="italian" href="#goal_it">REACH YOUR GOALS</a>
+                
+                <a class="english" href="#priorities_en">PRIORITIES</a>
+                <a class="italian" href="#priorities_it">PRIORITIES</a>
+                
+                <a href="#">AVAILIBILITY</a>
+                <a href="#">MY VIDEOS</a>
+                <a href="#">TESTIMONIALS</a>
+            </div>
+
+            <div class="footer__links">
+                <h1>USEFUL LINKS</h1>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/22777332" target="_blank" rel="noreferrer">RESISTANCE TRAINING</a>
+                <a href="https://www.menshealth.com/uk/building-muscle/a756325/10-best-bodyweight-exercises-for-men/" target="_blank" rel="noreferrer">BODY-WEIGHT TRAINING</a>
+                <a href="https://www.nutrition.org.uk/healthyliving/an-active-lifestyle/eating-for-sport-and-exercise.html" target="_blank" rel="noreferrer">NUTRITIONAL</a>
+                <a href="https://www.nhs.uk/live-well/healthy-weight/bmi-calculator/" target="_blank" rel="noreferrer">BMI CALCULATOR</a>
+                <a href="https://greatist.com/fitness/best-cardio-workouts#beginner" target="_blank" rel="noreferrer">CARDIO</a>
+                <a href="https://www.game-learn.com/why-online-learning-is-profitable-and-efficient-for-companies/" target="_blank" rel="noreferrer">ONLINE TRAINING</a>
+            </div>
+
+            <div class="footer__links">
+                <h1>LEGAL STUFF</h1>
+                <a href="pages/privacy_policy/privacy_policy.html">PRIVACY POLICY</a>
+                <a href="./documents/ipt_online_training_informed_consent_form.docx" download="training-consent-form">TRAINING CONSENT</a>
+                <a href="./documents/testimonial-and-photo-release-form.pdf" download>TESTIMONIAL & PHOTO RELEASE</a>
+                <a href="./documents/physical_activity_readiness_form.pdf" download>PHISICAL ACTIVITY READYNESS</a>
+                <a href="./documents/Personal-Trainer-Waiver-of-Liability.pdf" download>RELEASE OF LIABILITY</a>
+                <a href="./documents/Personal-Trainer-Contract-Agreement.pdf" download>CONTRACT</a>
+            </div>
+        </div>
+
+        <div class="smallprint">
+            <small>
+                <a id="link-francesco" href="#">
+                    https://coach.francesco.uk.co
+                </a> 
+
+                <nobr>&hyphen; &copy; Copyright </nobr>
+                
+                <span id="small-print__current-year">
+                    <script id="year">
+                        document.write(new Date().getFullYear())
+                    </script>
+                </span>
+                <nobr>, Francesco Levo</nobr>
+            </small>
+
+            <div class="logos">
+                <a href="./admin/login.html" id="francesco-icon" title="Francesco Levo Logo"></a>
+                
+                <hr>
+                
+                <a href="https://tschiboka.co.uk/" target="_blank" id="tschiboka-icon" title="Tivadar Debnar Logo"></a>
+            </div>
+            
+            <small>
+                <nobr>Website is created by Tivadar Debnar &hyphen;</nobr>
+                
+                <a 
+                    id="link-tschiboka" 
+                    href="https://tschiboka.co.uk/" 
+                    rel="noreferrer"
+                    target="_blank">
+                    https://tschiboka.co.uk 
+                </a>
+            </small>
+        </div>
+    </footer>
+
+    <script src="./pages/index/index.js"></script>
+    <script src="./utility/getQueryParams.js"></script>
+    <script>
+        if(urlParams.lang === 'it') { 
+            setLanguage("italian"); 
+        }
+    </script>
+
+    <script src="./utility/visit.js"></script>
+</body>
 </html>

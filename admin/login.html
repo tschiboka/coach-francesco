@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../images/misc/fire.png" type="image/x-icon"/>
+    <script src="https://kit.fontawesome.com/d5efc64c80.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="./login.css">
+    <title>Coach Francesco Levo | Login</title>
+</head>
+<body>
+    <img src="../images/misc/fire.png" alt="Logo">
+
+    <h1>Login</h1>
+    
+    <form action="">
+        <fieldset>
+            <label for="email" id="email-label">
+                <div id="email-circle" class="circle"></div>
+                <div id="email-label-text">Email:</div>
+                <div id="email-error-msg" class="error-msg"></div>
+            </label>
+
+            <input 
+                id="email" 
+                name="email" 
+                type="email" 
+                placeholder="EMAIL" 
+                onfocus="validate('email')"
+                oninput="validate('email')"
+                onblur="handleInputOnBlur('email')"
+            />
+        </fieldset>
+
+        <fieldset>
+            <label for="password" id="password-label">
+                <div id="password-circle" class="circle"></div>
+                <div id="password-label-text">Password:</div>
+                <div id="password-error-msg" class="error-msg"></div>
+            </label>
+
+            <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="PASSWORD"
+                onfocus="validate('password')"
+                oninput="validate('password')"
+                onblur="handleInputOnBlur('password')"
+            />
+
+            <i id="show-password" class="far fa-eye" onclick="showPassword()"></i>
+        </fieldset>
+
+        
+        <button id="sign-in" type="button" onclick="onSubmit()">Sign in</button>
+        <span id="submit-error-text">Message</span>
+    </form>
+
+    <script src="./login.js"></script>
+    <script src="../utility/visit.js"></script>
+    <script>storeVisit('LOGIN')</script>
+</body>
+</html>
