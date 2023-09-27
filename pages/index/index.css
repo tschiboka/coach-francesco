@@ -286,7 +286,7 @@ q {
     width: 1000px;
     padding: 10px 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background: rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     border: 2px solid var(--black3);
